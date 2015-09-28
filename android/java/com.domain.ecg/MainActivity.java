@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 
     imageView = (ImageView) this.findViewById(R.id.imageView);
     //  maximum value 1023 (2^10-1)
-    Bitmap bitmap = Bitmap.createBitmap((bsize/2)*scale, 1030, Bitmap.Config.ARGB_8888);
+    Bitmap bitmap = Bitmap.createBitmap(graph.length*scale, 1030, Bitmap.Config.ARGB_8888);
     canvas = new Canvas(bitmap);
     imageView.setImageBitmap(bitmap);
     paint = new Paint();
