@@ -3,7 +3,6 @@
 #define LED_PIN 13
 
 int value = 0;
-int trash = 0;
 unsigned long t_read = 0;
 const unsigned long interval = 4999;
 
@@ -32,15 +31,3 @@ void loop() {
     Serial.flush();
   }
 }
-
-// Test of sample rate precision
-/*void loop() {
-  if ((micros()-t_read) > interval) {
-    value = (int)(micros() - t_read);
-    t_read = micros();
-    trash = analogRead(ANALOG_IN);
-    Serial.write((value >> 8) & 0xff);
-    Serial.write(value & 0xff);
-    Serial.flush();
-  }
-}*/
