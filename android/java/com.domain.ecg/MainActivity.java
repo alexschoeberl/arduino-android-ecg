@@ -40,7 +40,8 @@ public class MainActivity extends Activity {
     setContentView(R.layout.activity_main);
 
     imageView = (ImageView) this.findViewById(R.id.imageView);
-    Bitmap bitmap = Bitmap.createBitmap(1280, 1030, Bitmap.Config.ARGB_8888);
+    //  maximum value 1023 (2^10-1)
+    Bitmap bitmap = Bitmap.createBitmap((bsize/2)*scale, 1030, Bitmap.Config.ARGB_8888);
     canvas = new Canvas(bitmap);
     imageView.setImageBitmap(bitmap);
     paint = new Paint();
@@ -111,8 +112,8 @@ public class MainActivity extends Activity {
   private void plot() {
     canvas.drawColor(Color.WHITE);
     for (int i = 1; i < graph.length; i++) {
-      canvas.drawLine((i-1)*2, graph[i-1],
-                      i*2, graph[i], paint);
+      canvas.drawLine((i-1)*scale, graph[i-1],
+                      i*scale, graph[i], paint);
     }
     imageView.invalidate();
   }
